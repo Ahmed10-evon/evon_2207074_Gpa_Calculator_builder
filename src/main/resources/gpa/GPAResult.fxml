@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="gpa.controller.GPAResultController"
+            stylesheets="@styles.css">
+
+    <!-- Proper padding using Insets -->
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <!-- Top header -->
+    <top>
+        <Label text="GPA Result Summary" styleClass="header"/>
+    </top>
+
+    <!-- Center content -->
+    <center>
+        <VBox spacing="20" alignment="TOP_CENTER">
+
+            <!-- TableView for courses -->
+            <TableView fx:id="table" prefHeight="300">
+
+                <columns>
+                    <TableColumn text="Course Name" prefWidth="150" fx:id="courseNameColumn"/>
+                    <TableColumn text="Code" prefWidth="80" fx:id="courseCodeColumn"/>
+                    <TableColumn text="Credit" prefWidth="80" fx:id="creditColumn"/>
+                    <TableColumn text="Teacher 1" prefWidth="120" fx:id="teacher1Column"/>
+                    <TableColumn text="Teacher 2" prefWidth="120" fx:id="teacher2Column"/>
+                    <TableColumn text="Grade" prefWidth="80" fx:id="gradeColumn"/>
+                </columns>
+
+            </TableView>
+
+            <!-- GPA label -->
+            <Label fx:id="finalGPA" styleClass="gpa-label"/>
+
+        </VBox>
+    </center>
+
+</BorderPane>

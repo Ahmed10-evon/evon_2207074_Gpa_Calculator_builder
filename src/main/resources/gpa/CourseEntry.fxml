@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.collections.FXCollections?>
+<?import javafx.collections.ObservableList?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.String?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="gpa.controller.CourseEntryController"
+            stylesheets="@styles.css">
+
+    <!-- Top header -->
+    <top>
+        <Label text="Add Course Information" styleClass="header">
+            <padding>
+                <Insets top="10" right="0" bottom="10" left="0"/>
+            </padding>
+        </Label>
+    </top>
+
+    <!-- Center grid for input fields -->
+    <center>
+        <GridPane hgap="20" vgap="18" alignment="CENTER">
+            <columnConstraints>
+                <ColumnConstraints halignment="RIGHT"/>
+                <ColumnConstraints prefWidth="300"/>
+            </columnConstraints>
+
+            <Label text="Course Name:" GridPane.rowIndex="0"/>
+            <TextField fx:id="courseName" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+            <Label text="Course Code:" GridPane.rowIndex="1"/>
+            <TextField fx:id="courseCode" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+            <Label text="Credit:" GridPane.rowIndex="2"/>
+            <TextField fx:id="courseCredit" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+            <Label text="Teacher 1:" GridPane.rowIndex="3"/>
+            <TextField fx:id="teacher1" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+
+            <Label text="Teacher 2:" GridPane.rowIndex="4"/>
+            <TextField fx:id="teacher2" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+
+            <Label text="Grade:" GridPane.rowIndex="5"/>
+            <ComboBox fx:id="grade" GridPane.rowIndex="5" GridPane.columnIndex="1">
+                <items>
+                    <FXCollections fx:factory="observableArrayList">
+                        <String fx:value="A+"/>
+                        <String fx:value="A"/>
+                        <String fx:value="A-"/>
+                        <String fx:value="B+"/>
+                        <String fx:value="B"/>
+                        <String fx:value="B-"/>
+                        <String fx:value="C+"/>
+                        <String fx:value="C"/>
+                        <String fx:value="D"/>
+                        <String fx:value="F"/>
+                    </FXCollections>
+                </items>
+            </ComboBox>
+        </GridPane>
+    </center>
+
+    <!-- Bottom buttons -->
+    <bottom>
+        <HBox spacing="20" alignment="CENTER">
+            <padding>
+                <Insets top="20" right="0" bottom="20" left="0"/>
+            </padding>
+            <Button text="Add Course" styleClass="primary-btn" onAction="#addCourse"/>
+            <Button fx:id="calcBtn" text="Calculate GPA" styleClass="success-btn"
+                    disable="true" onAction="#showResult"/>
+        </HBox>
+    </bottom>
+
+</BorderPane>
